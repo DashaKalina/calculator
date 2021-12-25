@@ -16,7 +16,7 @@
     <h1 class="title">
       Розрахунок ціни на пастилу 
     </h1>
-    <select class="select" onclick="price()" id="type" required="required">
+    <select class="select" onclick="showPrice();" id="type" required="required">
       <option value="">Вид пастили</option>
       <option value="apple">яблуко</option>
       <option value="apple-strawberry">яблуко-суниця</option>
@@ -27,12 +27,13 @@
 
     <input type="number" readonly id="price" placeholder="ціна за кг">
     <input type="number" id="number" placeholder="потрібна кількість в гр">
-    <button class="btn" onclick="calcPrice();">
+    <button class="btn" onclick="render()">
       Порахувати
     </button>
     <div id="result"></div>
   </div>
   
   <script src="js/main.js"></script>    
+  <script src="js/calcPrice.js"></script>    
 </body>
 </html>

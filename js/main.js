@@ -1,7 +1,14 @@
-function price() {
-  const type = document.getElementById('type').value;
+function getValue(id) {
+  return document.getElementById(id).value;
+}
+
+function postValue(id, message) {
+  document.getElementById(id).innerHTML = message;
+}
+
+function getPriceOfPastila(typePastila) {
   let price;
-  switch (type) {
+  switch (typePastila) {
     case "apple":
       price = 280;
       break
@@ -20,30 +27,29 @@ function price() {
     default:
       break
   }
-
-  if (price) {
-    document.getElementById('price').value = price;
-  } else {
-    document.getElementById('price').value = ""
-  }
+  return price;
 }
 
-function calcPrice() {
-  const fixedPrice = document.getElementById('price').value;
-  const theRightAmount = document.getElementById('number').value;
-  
-  if (theRightAmount && fixedPrice) {
-    const totalPrice = (fixedPrice/1000)*theRightAmount
-    const text = `Ціна даного виду пастили складе ${totalPrice} грн.`;
-    document.getElementById('result').innerHTML = text;    
+function showPrice() { 
+  const fixedPrice = getPriceOfPastila(getValue("type"));
+  if (fixedPrice) {
+    document.getElementById("price").value = fixedPrice;
+  } else {
+    document.getElementById("price").value = "";
+  }
+  return fixedPrice;
+}
+
+function calcTotalPrice() {
+  return calcPrice(showPrice(), +getValue("number"));
+}
+
+function render() {
+  if (+getValue("number") && showPrice()) {
+    const text = `Ціна даного виду пастили складе ${calcTotalPrice()} грн.`;
+    postValue("result", text);    
   } else { 
     const errorMessage = "Заповніть, будь-ласка, всі поля!";
-    document.getElementById('result').innerHTML = errorMessage;
-  } 
+    postValue("result", errorMessage);
+  }
 }
-
-
-
-
-
-
