@@ -40,17 +40,13 @@ function showPrice() {
   return fixedPrice;
 }
 
-function calcTotalPrice() {
-  return calcPrice(showPrice(), +getValue("number"));
-}
-
-function createText() {
-  return `Ціна даного виду пастили складе ${calcTotalPrice()} грн.`;
+function createText(totalCount) {
+  return `Ціна даного виду пастили складе ${totalCount} грн.`;
 }
 
 function render() {
   if (+getValue("number") && showPrice()) {
-    postValue("result", createText());    
+    postValue("result", createText(calcPrice(showPrice(), +getValue("number"))));  
   } else { 
     const errorMessage = "Заповніть, будь-ласка, всі поля!";
     postValue("result", errorMessage);
