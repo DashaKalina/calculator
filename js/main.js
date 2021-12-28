@@ -44,12 +44,16 @@ function calcTotalPrice() {
   return calcPrice(showPrice(), +getValue("number"));
 }
 
+function createText() {
+  return `Ціна даного виду пастили складе ${calcTotalPrice()} грн.`;
+}
+
 function render() {
   if (+getValue("number") && showPrice()) {
-    const text = `Ціна даного виду пастили складе ${calcTotalPrice()} грн.`;
-    postValue("result", text);    
+    postValue("result", createText());    
   } else { 
     const errorMessage = "Заповніть, будь-ласка, всі поля!";
     postValue("result", errorMessage);
   }
 }
+
