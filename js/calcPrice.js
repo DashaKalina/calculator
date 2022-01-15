@@ -1,3 +1,1 @@
-function calcPrice(a,b) {
-  return (a/1000)*b
-}
+let calcPrice = (a,b) => (a/1000)*b;

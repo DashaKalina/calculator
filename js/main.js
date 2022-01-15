@@ -1,12 +1,8 @@
-function getValue(id) {
-  return document.getElementById(id).value;
-}
+let getValue = id => document.getElementById(id).value;
 
-function postValue(id, message) {
-  document.getElementById(id).innerHTML = message;
-}
+let postValue = (id, message) => document.getElementById(id).innerHTML = message;
 
-function getPriceOfPastila(typePastila) {
+let getPriceOfPastila = typePastila => {
   let price;
   switch (typePastila) {
     case "apple":
@@ -30,7 +26,7 @@ function getPriceOfPastila(typePastila) {
   return price;
 }
 
-function showPrice() { 
+let showPrice = () => {
   const fixedPrice = getPriceOfPastila(getValue("type"));
   if (fixedPrice) {
     document.getElementById("price").value = fixedPrice;
@@ -40,11 +36,9 @@ function showPrice() {
   return fixedPrice;
 }
 
-function createText(totalCount) {
-  return `Ціна даного виду пастили складе ${totalCount} грн.`;
-}
+let createText = totalCount => `Ціна даного виду пастили складе ${totalCount} грн.`;
 
-function render() {
+let render = () => {
   if (+getValue("number") && showPrice()) {
     postValue("result", createText(calcPrice(showPrice(), +getValue("number"))));  
   } else { 
