@@ -1,5 +1,5 @@
 {
-  "name": "calculator",
+  "name": "calculator-pastyla",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/DashaKalina/calculator.git"
   },
-  "author": "DashaKalina",
+  "author": "DashaKalynovska",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DashaKalina/calculator/issues"
